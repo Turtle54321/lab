@@ -19,4 +19,7 @@ public class ErrorCodeMap {
         errorCodeMap.put(NOT_FOUND_PARAM, "找不到参数");
         errorCodeMap.put(PARAMETER_ERROR, "参数格式不对");
     }
+    public static String getErrorMsg(int errorNO) {
+        return errorCodeMap.get(errorNO);
+    }
 }

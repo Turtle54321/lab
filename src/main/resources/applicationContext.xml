@@ -48,24 +48,6 @@
 	<!--<bean id="authAspect" class="com.zgc.fds.utils.AuthAspect" />-->
 	<aop:aspectj-autoproxy />
 
-
- 	<mvc:interceptors>
-		<mvc:interceptor>
-			<!-- 拦截路径 -->
-			<mvc:mapping path="/back/user/**" />
-
-			<!-- 排除登录相关的请求路径 -->
-			<mvc:exclude-mapping path="/back/user/login.do" />
-			<mvc:exclude-mapping path="/back/user/checkLogin.do" />
-			<mvc:exclude-mapping path="/back/user/exit.do" />
-			<!-- 排除重置密码的请求路径 -->
-			<mvc:exclude-mapping path="/back/user/getDisplayMofidyPwdPage.do" />
-			<mvc:exclude-mapping path="/back/user/modifyBackUserPassword.do" />
-			<!-- 拦截器类的路径地址 -->
-			<bean class="com.xhk.lab.utils.LoginInterceptor" />
-		</mvc:interceptor>
-	</mvc:interceptors>
-
 	<bean id="timeOutAspectBean" class="com.xhk.lab.common.aspect.TimeOutAspect" />
 	<!-- 配置一个切面 -->
 	<aop:config>

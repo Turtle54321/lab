@@ -1,6 +1,8 @@
 package com.xhk.lab.common;
 
 
+import com.xhk.lab.common.constant.ErrorCodeMap;
+
 /**
  * create by xhk on 18/3/4
  */
@@ -14,7 +16,7 @@ public class ProjectException extends RuntimeException{
         this.setErrorNo(errorNo);
     }
     public ProjectException(int errorNo){
-        this.setErrorMsg("");
+        this.setErrorMsg(ErrorCodeMap.getErrorMsg(errorNo));
         this.setErrorNo(errorNo);
     }
     public ProjectException() {

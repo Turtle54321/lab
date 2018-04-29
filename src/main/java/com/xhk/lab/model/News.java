@@ -4,12 +4,27 @@ package com.xhk.lab.model;
  * create by xhk on 2018/3/26
  */
 public class News {
+    public static Integer NEWS_TYPE = 1;
+    public static Integer PROJECT_TPYE = 2;
+    public static Integer PHOTO_TYPE = 3;
+
+    public static boolean typeConfirm(Integer type){
+        // 判断type是否合法
+        if (type == NEWS_TYPE || type == PROJECT_TPYE || type == PHOTO_TYPE){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     private Integer id;
     private String title;
     private String etitle;
     private String content;
     private String econtent;
     private String url;
+    private Integer type; // 1为新闻，2为项目，3为相册
     private Integer createTime;
     private Integer updateTime;
 
@@ -59,6 +74,14 @@ public class News {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 
     public Integer getCreateTime() {

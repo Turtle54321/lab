@@ -1,15 +1,12 @@
 package com.xhk.lab.model;
 
 /**
- * create by xhk on 2018/3/26
+ * create by xhk on 2018/4/8
  */
-public class Project {
+public class IndexImg {
     private Integer id;
-    private String name;
-    private String ename;
-    private String content;
-    private String econtent;
     private String url;
+    private Integer seq;
     private Integer createTime;
     private Integer updateTime;
 
@@ -21,44 +18,20 @@ public class Project {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEname() {
-        return ename;
-    }
-
-    public void setEname(String ename) {
-        this.ename = ename;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getEcontent() {
-        return econtent;
-    }
-
-    public void setEcontent(String econtent) {
-        this.econtent = econtent;
-    }
-
     public String getUrl() {
         return url;
     }
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public Integer getSeq() {
+        return seq;
+    }
+
+    public void setSeq(Integer seq) {
+        this.seq = seq;
     }
 
     public Integer getCreateTime() {
