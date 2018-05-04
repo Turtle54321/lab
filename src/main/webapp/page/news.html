@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>大连理工大学软件学院可信计算实验室</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link href="../static/base/css/styles.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="../static/base/css/nivo-slider.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="../static/ui/pagination/pagination.css">
+</head>
+<body>
+
+<div id="bg_clouds">
+    <div id="main" class="news">
+        <!-- header begins -->
+        <div id="header">
+            <div id="buttons">
+                <a href="index.htm?language=${language}" class="but but_t" title=""><#if language == 1>首页<#else>Homepage</#if></a>
+                <a href="news.htm?type=1&whichPage=1&perCount=10&language=${language}" class="but" title=""><#if language == 1>新闻<#else>News</#if></a>
+                <a href="news.htm?type=2&whichPage=1&perCount=10&language=${language}" class="but" title=""><#if language == 1>项目<#else>Project</#if></a>
+                <a href="member.htm?language=${language}" class="but" title=""><#if language == 1>成员<#else>People</#if></a>
+                <a href="resource.htm?whichPage=1&perCount=10&language=${language}" class="but" title=""><#if language == 1>资源<#else>Resource</#if></a>
+                <a href="news.htm?type=3&whichPage=1&perCount=10&language=${language}" class="but" title=""><#if language == 1>活动相册<#else>Photo</#if></a>
+            </div>
+
+            <div id="logo">
+                <a href="#">大连理工大学软件学院可信计算实验室</a>
+                <h2><a href="#" id="metamorph">Trusted Computing Lab of SSDUT</a></h2>
+            </div>
+
+        </div>
+        <!-- header ends -->
+        <div class="top_top"></div>
+        <div class="top">
+
+            <div id="wrapper">
+                <div id="slider-wrapper">
+                    <div id="slider" class="nivoSlider">
+                        <#if indexImgList??>
+                        <#list indexImgList as indexImg>
+                        <img src="${indexImg}" alt=""/>
+                        </#list>
+                        </#if>
+                    </div>
+                </div>
+
+            </div>
+
+            <script type="text/javascript" src="../static/base/lib/jquery-1.4.3.min.js"></script>
+            <script type="text/javascript" src="../static/base/lib/jquery.nivo.slider.pack.js"></script>
+            <script type="text/javascript">
+                $(window).load(function () {
+                    $('#slider').nivoSlider();
+                });
+            </script>
+        </div>
+        <div class="top_bot"></div>
+        <div style="height:17px"></div>
+        <!-- content begins -->
+        <div class="cont_top"></div>
+        <div id="content">
+            <div class="razd_lr">
+                <div id="right">
+                    <h2><#if language == 1>快速导航<#else>Quick Navigation</#if></h2>
+                    <ul class="spis">
+                        <li><a href="http://sei.dlut.edu.cn/"><#if language == 1>大连理工大学软件工程研究院<#else>Institute of SSDUT</#if></a></li>
+                        <li><a href="http://www.lib.dlut.edu.cn"><#if language == 1>图书馆<#else>Library</#if></a></li>
+                        <li><a href="mailto:ssdut@dlut.edu.cn"><#if language == 1>院长信箱<#else>Dean Mailbox</#if></a></li>
+                    </ul>
+                    <div style=" height:35px"></div>
+                    <h2><#if language == 1>热点链接<#else>Hot Links</#if></h2>
+                    <ul class="spis">
+                        <li><a href="http://www.dlut.edu.cn"><#if language == 1>大连理工大学官网<#else>Dalian University of Technology</#if></a></li>
+                        <li><a href="http://218.61.196.241/jw"><#if language == 1>软件学院教务办公系统<#else>Office System of SSDUT</#if></a></li>
+                        <li><a href="http://teach.dlut.edu.cn"><#if language == 1>大连理工大学教务处<#else>Academic Affairs Office Of DUT</#if></a></li>
+                    </ul>
+                    <div style=" height:35px"></div>
+
+                </div>
+                <div id="left" class="news">
+                    <h2><#if type == 1><#if language == 1>新闻<#else>News</#if><#elseif type == 2><#if language == 1>项目<#else>Project</#if><#else> <#if language == 1>活动相册<#else>Photo</#if></#if></h2>
+                    <#setting datetime_format="yyyy-MM-dd"/>
+                    <#if list??>
+                    <#list list as news>
+                    <p class="font1">${(news.createTime*1000)?number_to_datetime}</p>
+                    <p class="under"><a href="/news-detail.htm?newsId=${news.id}&language=${language}"><#if language == 1>${news.title}<#else>${news.etitle}</#if></a></p>
+                    </#list>
+                    </#if>
+
+                <div class="pagination"></div>
+                    <div style="clear: both;"></div>
+                </div>
+
+                <div style="clear: both"></div>
+            </div>
+        </div>
+        <div class="cont_bot"></div>
+        <!-- content ends -->
+        <div style="height:15px"></div>
+        <!-- footer begins -->
+        <div id="footer">
+            Copyright 2012. Collect from <a href="http://www.cssmoban.com/" title="Free Website Templates">Free Website
+            Templates</a><!-- end --><br/>
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="http://www.cssmoban.com/"
+                                                                               title="This page validates as XHTML 1.0 Transitional"><abbr
+                title="eXtensible HyperText Markup Language">XHTML</abbr></a> | <a href="http://www.cssmoban.com/"
+                                                                                   title="This page validates as CSS"><abbr
+                title="Cascading Style Sheets">CSS</abbr></a>
+        </div>
+        <!-- footer ends -->
+    </div>
+
+</div>
+<script data-main="../static/page/news/news.js" src="../static/base/js/require.js" crossorigin="anonymous"></script>
+<script>
+    window.PageData = {
+        listCount: "<#if allCount??>${allCount}</#if>" || 100
+    };
+</script>
+</body>
+</html>

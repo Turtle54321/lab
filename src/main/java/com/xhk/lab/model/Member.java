@@ -4,6 +4,10 @@ package com.xhk.lab.model;
  * create by xhk on 2018/3/26
  */
 public class Member {
+    public static Integer TEACHER_STATUS = 1;
+    public static Integer DOCTOR_STATUS = 2;
+    public static Integer MASTER_STATUS = 3;
+
     private Integer id;
     private String name;
     private String ename;

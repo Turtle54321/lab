@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>大连理工大学软件学院可信计算实验室</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link href="../static/base/css/styles.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="../static/base/css/nivo-slider.css" type="text/css" media="screen"/>
+
+    <script src="../static/base/lib/jquery.js" type="text/javascript"></script>
+    <script src="../static/base/lib/main.js" type="text/javascript"></script>
+
+</head>
+<body>
+
+<div id="bg_clouds">
+    <div id="main">
+        <!-- header begins -->
+        <div id="header">
+            <div id="buttons">
+                <a href="index.htm?language=${language}" class="but but_t" title=""><#if language == 1>首页<#else>Homepage</#if></a>
+                <a href="news.htm?type=1&whichPage=1&perCount=10&language=${language}" class="but" title=""><#if language == 1>新闻<#else>News</#if></a>
+                <a href="news.htm?type=2&whichPage=1&perCount=10&language=${language}" class="but" title=""><#if language == 1>项目<#else>Project</#if></a>
+                <a href="member.htm?language=${language}" class="but" title=""><#if language == 1>成员<#else>People</#if></a>
+                <a href="resource.htm?whichPage=1&perCount=10&language=${language}" class="but" title=""><#if language == 1>资源<#else>Resource</#if></a>
+                <a href="news.htm?type=3&whichPage=1&perCount=10&language=${language}" class="but" title=""><#if language == 1>活动相册<#else>Photo</#if></a>
+            </div>
+
+            <div id="logo">
+                <a href="#">大连理工大学软件学院可信计算实验室</a>
+                <h2><a href="#" id="metamorph">Trusted Computing Lab of SSDUT</a></h2>
+            </div>
+
+        </div>
+        <!-- header ends -->
+        <div style="height:17px"></div>
+        <!-- content begins -->
+        <div class="cont_top"></div>
+        <div id="content_news_detail">
+            <#if news??>
+            <div class="row">
+                <div class="news-header">
+                    <h1><#if language == 1>${news.title}<#else>${news.etitle}</#if></h1>
+                    <#setting datetime_format="yyyy-MM-dd HH:mm:ss"/>
+                    <h5>${(news.createTime*1000)?number_to_datetime}</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="member-info">
+                    <#if language == 1>${news.content}<#else>${news.econtent}</#if>
+                </div>
+            </div>
+            </#if>
+
+        </div>
+        <div class="cont_bot"></div>
+        <!-- content ends -->
+        <div style="height:15px"></div>
+        <!-- footer begins -->
+        <div id="footer">
+            Copyright 2012. Collect from <a href="http://www.cssmoban.com/" title="Free Website Templates">Free Website
+            Templates</a><!-- end --><br/>
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="http://www.cssmoban.com/"
+                                                                               title="This page validates as XHTML 1.0 Transitional"><abbr
+                title="eXtensible HyperText Markup Language">XHTML</abbr></a> | <a href="http://www.cssmoban.com/"
+                                                                                   title="This page validates as CSS"><abbr
+                title="Cascading Style Sheets">CSS</abbr></a>
+        </div>
+        <!-- footer ends -->
+    </div>
+
+</div>
+
+</body>
+</html>

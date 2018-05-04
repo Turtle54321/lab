@@ -11,7 +11,7 @@ border: 0px;
 
 body{
 	font: 12px Arial, Helvetica, sans-serif;
-	background: url(images/bg.jpg);
+	background: url(../img/bg.jpg);
 	line-height: 18px;
 }
 
@@ -20,16 +20,17 @@ body{
 #main {
 	width: 1000px;
 	margin: 0px auto;
-	background:url(../img/main.jpg) right top no-repeat;}
+	/*background:url(../img/main.jpg) right top no-repeat;}*/
+}
 
 #header { 
 	width:1000px;
-	height: 254px;
+	height: 200px;
 	padding-top: 30px;
 }
 
 #logo {	
-		padding: 107px 0px 0px 18px;
+		padding: 50px 0px 0px 18px;
 		height: 75px;
 }
 
@@ -78,14 +79,14 @@ body{
 }
 
 .but {
-	width: 120px;
+	width: 130px;
 }
 
 #buttons .but:hover {
 	background: url(../img/but_hover.jpg) top repeat-x;
 	}
 	
-.but_t {background: url(../img/but_hover.gif) center bottom no-repeat;}
+/*.but_t {background: url(../img/but_hover.gif) center bottom no-repeat;}*/
 
 .top_top {
 	background: url(../img/top_top.png) left top no-repeat;
@@ -134,8 +135,14 @@ p {padding-bottom:20px}
 
 #content_gal{
 	background: url(../img/content.png);
-	padding: 0px 13px 0px 13px;
+	padding: 0px 13px 20px 60px;
 	color: #000000;
+}
+
+#content_member_detail{
+    background: url(../img/content.png);
+    padding: 20px 60px 20px 60px;
+    color: #000000;
 }
 
 .clear
@@ -147,7 +154,7 @@ p {padding-bottom:20px}
 }
 
 .cont_bot{
-	background: url(../img/cont_bot.png) left bottom no-repeat;
+	background: url(../img/cont_bot.png) bottom no-repeat;
 	height: 24px;
 }
 
@@ -298,7 +305,7 @@ p {padding-bottom:20px}
 
 .box_us {
 width: 244px;
-background: url(../img/box_us.gif) 0px bottom repeat-x;
+/*background: url(../img/box_us.gif) 0px bottom repeat-x;*/
 }
 
 .box_us_l {
@@ -359,7 +366,7 @@ float: left;}
 	color: #ffffff;
 	text-align: center;
 	padding: 22px 0px 0px 0px;
-	background: url(../img/footer.jpg) 0px 15px no-repeat;
+	/*background: url(../img/footer.jpg) 0px 15px no-repeat;*/
 }
 
 #footer a{
@@ -452,31 +459,41 @@ h2 {
 
 
 .gal_num {
-	background: url(../img/gal_num.png) 0px 0px no-repeat;
-	width: 14px;
+	/*background: url(../img/gal_num.png) 0px 0px no-repeat;
+	background-size: 100% 20px;*/
+	background: #369;
+	border-radius: 3px;
+	min-width: 16px;
+	text-align: center;
 	height: 20px;
-	padding: 1px 0px 0px 6px;
+	padding: 2px 6px;
 	display:block;
 	margin-right: 5px;
 	color: #FFFFFF;
 	font-size: 12px;
 	float:left;
-	text-decoration: none; }
+	text-decoration: none; 
+	line-height: 20px;
+}
 	
-.gal_num:hover { background: url(../img/gal_num_hover.png) 0px 0px no-repeat;}
+.gal_num:hover { 
+	/*background: url(../img/gal_num_hover.png) 0px 0px no-repeat;*/
+	opacity: 0.5;
+}
 
 .row {
 	padding: 0px 0px 0px 0px;
-	height: 273px;
+	min-height: 215px;
 }
 
 .box_img2 {
-	width: 272px;
-	height: 273px;
+	width: 120px;
+	height: 220px;
 	background: url(../img/box_img.png) 0px 0px no-repeat;
-	padding: 0px 20px 0px 20px;
+	padding: 0px 20px 0px 10px;
 	float:left;
 	color: #000000;
+    text-align: center;
 }
 
 #preview{
@@ -490,7 +507,7 @@ h2 {
 
 
 .box_razd {
-	width: 19px;
+	width: 30px;
 	height: 50px;
 	float: left;
 }
@@ -628,4 +645,66 @@ a.nivo-prevNav {
     color:#efe9d1;
     text-decoration:underline;
 }
+.member-header {
+	border-bottom: 1px solid #000;
+	margin-bottom: 30px;
+}
+.member-image {
+	float: left;
+	height: 160px;
+	width: 120px;
+	border: none;
+}
+.member-intro {
+	min-height: 200px;
+	margin-left: 330px;
+}
+.member-info {
 
+}
+.member-intro .info-title,
+.member-info .info-title {
+	font-size: 20px;
+	line-height: 30px;
+}
+.member-intro .info-list,
+.member-info .info-list {
+	font-size: 24px;
+	line-height: 30px;
+	list-style: none;
+	margin-bottom: 20px;
+}
+.member-intro .info-item,
+.member-info .info-item {
+	font-size: 16px;
+	line-height: 20px;
+}
+.index-head-img{
+    width: 90px;
+    height: 120px;
+    padding-left: 10px;
+}
+#lab_badge{
+    width: 160px;
+    height: 160px;
+}
+
+.news a:hover {
+    text-decoration: none;
+    color:#FF0000;
+}
+
+.news a {
+    color:#000000;
+    text-decoration:none;
+    font-weight: normal;
+}
+#content_news_detail{
+    background: url(../img/content.png);
+    padding: 20px 60px 20px 60px;
+    color: #000000;
+}
+.news-header {
+    border-bottom: 1px solid #000;
+    margin-bottom: 30px;
+}

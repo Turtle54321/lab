@@ -29,11 +29,13 @@ public class TimeOutAspect {
 
         try {
             long end = System.currentTimeMillis();
-            logger.info("接口耗时："+(end - start)+"ms");
+
+            logger.info("JDBC耗时："+(end - start)+"ms");
             if(end-start > 3000){
                 Signature s = proceedingJoinPoint.getSignature();
-                String className = proceedingJoinPoint.getTarget().getClass().getName();
                 String methodName = s.getName();
+                String className = proceedingJoinPoint.getTarget().getClass().getName();
+
                 logger.warn("className={},methodName={},params={}",className,methodName, JsonUtil.getJsonFromObject(proceedingJoinPoint.getArgs()));
             }
         } catch (Throwable e) {
