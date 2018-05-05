@@ -24,6 +24,7 @@
             </div>
 
             <div id="logo">
+                <button class="language" onclick="javascrtpt:window.location.href='/index.htm?language=<#if language == 1>2<#else>1</#if>'"><#if language == 1>English Version<#else>中文版</#if></button>
                 <a href="#">大连理工大学软件学院可信计算实验室</a>
                 <h2><a href="#" id="metamorph">Trusted Computing Lab of SSDUT</a></h2>
             </div>
@@ -67,7 +68,7 @@
 
                     <h2><#if language == 1>实验室简介<#else>Lab Introduction</#if></h2>
                     <div class="wrapper pad_bot3">
-                        <div class="left marg_right1"><img src="../static/base/img/img21.jpg" alt=""/></div>
+                        <div class="left marg_right1"><img id="lab_badge" src="../static/base/img/lab_badge.png" alt=""/></div>
                         <#if introduction??><#if language == 1>${introduction.content}<#else>${introduction.econtent}</#if></#if>
                     </div>
                     <h2><#if language == 1>最近项目<#else>Recent Project</#if></h2>

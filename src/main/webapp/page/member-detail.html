@@ -28,6 +28,7 @@
             </div>
 
             <div id="logo">
+                <button class="language" onclick="javascrtpt:window.location.href='/member-detail.htm?memberId=${member.id}&language=<#if language == 1>2<#else>1</#if>'"><#if language == 1>English Version<#else>中文版</#if></button>
                 <a href="#">大连理工大学软件学院可信计算实验室</a>
                 <h2><a href="#" id="metamorph">Trusted Computing Lab of SSDUT</a></h2>
             </div>
@@ -45,10 +46,10 @@
                         <img class="member-image" src="${member.headUrl}" alt="<#if language == 1>${member.name}<#else>${member.ename}</#if>"/>
 
                     <div class="member-intro">
-                        <div class="info-title"><#if language == 1>${member.name}<#else>${member.ename}</#if></div>
-                        <div class="lab-pic">
+                        <div class="lab-pic info-image">
                             <img id="lab_badge" src="../static/base/img/lab_badge.png" alt=""/>
                         </div>
+                        <div class="info-title"><#if language == 1>${member.name}<#else>${member.ename}</#if></div>
                         <!--<ul class="info-list">-->
                             <!--<li class="info-item">1. xxxx</li>-->
                         <!--</ul>-->

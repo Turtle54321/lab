@@ -33,6 +33,19 @@ body{
 		padding: 50px 0px 0px 18px;
 		height: 75px;
 }
+#logo .language {
+	float: right;
+	background: #067296;
+	color: #fff;
+	line-height: 34px;
+	border-radius: 4px;
+	padding: 0 15px;
+    cursor:pointer;
+}
+#logo .language:hover{
+	opacity: 0.5;
+}
+
 
 #logo H2 {
 
@@ -104,6 +117,7 @@ body{
 	background: url(../img/content.png);
 	padding: 0px 24px 0px 24px;
 	color: #000000;
+    min-height: 500px;
 }
 
 .line1 {background:url(../img/razd_h.gif) 583px 0 repeat-y; width:100%; float:left}
@@ -143,6 +157,7 @@ p {padding-bottom:20px}
     background: url(../img/content.png);
     padding: 20px 60px 20px 60px;
     color: #000000;
+    min-height: 500px;
 }
 
 .clear
@@ -485,6 +500,9 @@ h2 {
 	padding: 0px 0px 0px 0px;
 	min-height: 215px;
 }
+.row.empty {
+	min-height: 35px;
+}
 
 .box_img2 {
 	width: 120px;
@@ -659,15 +677,22 @@ a.nivo-prevNav {
 	min-height: 200px;
 	margin-left: 330px;
 }
+.member-intro .info-title {
+	/*display: inline-block;*/
+	margin-right: 160px;
+	font-size: 20px;
+	line-height: 30px;
+}
+.member-intro .info-image {
+	float: right;
+}
 .member-info {
 
 }
-.member-intro .info-title,
 .member-info .info-title {
 	font-size: 20px;
 	line-height: 30px;
 }
-.member-intro .info-list,
 .member-info .info-list {
 	font-size: 24px;
 	line-height: 30px;
@@ -703,8 +728,15 @@ a.nivo-prevNav {
     background: url(../img/content.png);
     padding: 20px 60px 20px 60px;
     color: #000000;
+    min-height: 500px;
 }
 .news-header {
     border-bottom: 1px solid #000;
     margin-bottom: 30px;
+
+    text-align: center;
+}
+.news-header h1,
+.news-header h5 {
+    text-align: center;
 }
