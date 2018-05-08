@@ -85,7 +85,7 @@
                     <#if list??>
                     <#list list as news>
                     <p class="font1">${(news.createTime*1000)?number_to_datetime}</p>
-                    <p class="under"><a href="/news-detail.htm?newsId=${news.id}&language=${language}"><#if language == 1>${news.title}<#else>${news.etitle}</#if></a></p>
+                    <p class="under"><a href="<#if news.url?? && news.url != ''>${news.url}<#else>/news-detail.htm?newsId=${news.id}&language=${language}</#if>"><#if language == 1>${news.title}<#else>${news.etitle}</#if></a></p>
                     </#list>
                     </#if>
 

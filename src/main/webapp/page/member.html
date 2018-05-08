@@ -69,7 +69,7 @@
                 </#if>
                 <div class="box_img2">
                     <h4><#if language == 1>${member.name}<#else>${member.ename}</#if></h4>
-                    <a href="member-detail.htm?memberId=${member.id}&language=${language}" class="preview" title="<#if language == 1>${member.name}<#else>${member.ename}</#if>"><img
+                    <a href="<#if member.contentUrl??&&member.contentUrl != ''>${member.contentUrl}<#else>member-detail.htm?memberId=${member.id}&language=${language}</#if>" class="preview" title="<#if language == 1>${member.name}<#else>${member.ename}</#if>"><img
                             class="index-head-img" src="${member.headUrl}" alt=""/></a>
                     <h4><#if language == 1>${member.note}<#else>${member.enote}</#if></h4>
                 </div>
@@ -90,7 +90,7 @@
                 </#if>
                 <div class="box_img2">
                     <h4><#if language == 1>${member.name}<#else>${member.ename}</#if></h4>
-                    <a href="member-detail.htm?memberId=${member.id}&language=${language}" class="preview" title="<#if language == 1>${member.name}<#else>${member.ename}</#if>"><img
+                    <a href="<#if member.contentUrl??&&member.contentUrl != ''>${member.contentUrl}<#else>/member-detail.htm?memberId=${member.id}&language=${language}</#if>" class="preview" title="<#if language == 1>${member.name}<#else>${member.ename}</#if>"><img
                             class="index-head-img" src="${member.headUrl}" alt=""/></a>
                     <h4>${(member.enterTime*1000)?number_to_datetime}</h4>
                 </div>
@@ -110,7 +110,7 @@
                 </#if>
                 <div class="box_img2">
                     <h4><#if language == 1>${member.name}<#else>${member.ename}</#if></h4>
-                    <a href="member-detail.htm?memberId=${member.id}&language=${language}" class="preview" title="<#if language == 1>${member.name}<#else>${member.ename}</#if>"><img
+                    <a href="<#if member.contentUrl??&&member.contentUrl != ''>${member.contentUrl}<#else>/member-detail.htm?memberId=${member.id}&language=${language}</#if>" class="preview" title="<#if language == 1>${member.name}<#else>${member.ename}</#if>"><img
                             class="index-head-img" src="${member.headUrl}" alt=""/></a>
                     <h4>${(member.enterTime*1000)?number_to_datetime}</h4>
                 </div>
@@ -130,7 +130,7 @@
                 </#if>
                 <div class="box_img2">
                     <h4><#if language == 1>${member.name}<#else>${member.ename}</#if></h4>
-                    <a href="member-detail.htm?memberId=${member.id}&language=${language}" class="preview" title="<#if language == 1>${member.name}<#else>${member.ename}</#if>"><img
+                    <a href="<#if member.contentUrl??&&member.contentUrl != ''>${member.contentUrl}<#else>/member-detail.htm?memberId=${member.id}&language=${language}</#if>" class="preview" title="<#if language == 1>${member.name}<#else>${member.ename}</#if>"><img
                             class="index-head-img" src="${member.headUrl}" alt=""/></a>
                     <h4>${(member.enterTime*1000)?number_to_datetime} - ${(member.graduateTime*1000)?number_to_datetime}</h4>
                 </div>
@@ -150,7 +150,7 @@
                 </#if>
                 <div class="box_img2">
                     <h4><#if language == 1>${member.name}<#else>${member.ename}</#if></h4>
-                    <a href="member-detail.htm?memberId=${member.id}&language=${language}" class="preview" title="<#if language == 1>${member.name}<#else>${member.ename}</#if>"><img
+                    <a href="<#if member.contentUrl??&&member.contentUrl != ''>${member.contentUrl}<#else>/member-detail.htm?memberId=${member.id}&language=${language}</#if>" class="preview" title="<#if language == 1>${member.name}<#else>${member.ename}</#if>"><img
                             class="index-head-img" src="${member.headUrl}" alt=""/></a>
                     <h4>${(member.enterTime*1000)?number_to_datetime} - ${(member.graduateTime*1000)?number_to_datetime}</h4>
                 </div>

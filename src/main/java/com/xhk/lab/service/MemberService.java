@@ -7,6 +7,7 @@ import com.xhk.lab.model.Member;
 import com.xhk.lab.rmodel.MemberDetailGetRequest;
 import com.xhk.lab.rmodel.MemberDetailGetResponse;
 import com.xhk.lab.rmodel.MemberGetResponse;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,9 @@ public class MemberService {
         List<Member> graduateDoctorList = new ArrayList<>();
         List<Member> graduateMasterList = new ArrayList<>();
         for (Member member : memberList){
+            if (StringUtils.isBlank(member.getContent())){
+                member.setContentUrl(null);
+            }
             if (Member.TEACHER_STATUS == member.getStatus()){
                 teacherList.add(member);
             }
