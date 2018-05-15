@@ -354,7 +354,7 @@
     <build>
 
         <filters> <!-- 指定使用的 filter -->
-            <filter>src/main/profiles/${env}/ProjectTest.properties</filter>
+            <filter>src/main/profiles/${env}/lab.properties</filter>
         </filters>
 
         <resources>
