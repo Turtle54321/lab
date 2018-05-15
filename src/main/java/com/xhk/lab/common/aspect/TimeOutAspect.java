@@ -30,7 +30,7 @@ public class TimeOutAspect {
         try {
             long end = System.currentTimeMillis();
 
-            logger.info("JDBC耗时："+(end - start)+"ms");
+            logger.info("jdbc time："+(end - start)+"ms");
             if(end-start > 3000){
                 Signature s = proceedingJoinPoint.getSignature();
                 String methodName = s.getName();
