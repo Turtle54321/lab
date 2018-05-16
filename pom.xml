@@ -413,7 +413,7 @@
                     </webApp>
 
                     <httpConnector>
-                        <port>8080</port>
+                        <port>12345</port>
                     </httpConnector>
 
                 </configuration>
