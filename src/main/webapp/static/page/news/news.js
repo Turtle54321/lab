@@ -1,8 +1,8 @@
 define([
-    '/static/ui/utils/utils.js',
-    "/static/ui/dialog/dialog.js",
-    '/static/ui/form-handle/form-handle.js',
-    '/static/ui/pagination/pagination.js'
+    '/widget/ui/utils/utils.js',
+    "/widget/ui/dialog/dialog.js",
+    '/widget/ui/form-handle/form-handle.js',
+    '/widget/ui/pagination/pagination.js'
 ],function(Utils,Dialog,formHandle,Pagination){
     var $mod = $('.news');
     var $pagination = $mod.find('.pagination');

@@ -34,4 +34,28 @@ public interface ResourceDao {
     @Select("select * from resource where id = #{id};")
     public Resource getEntityById(@Param(value = "id") Integer id);
 
+    /**
+     * 插入资源
+     * @param resource
+     * @return
+     */
+    @Insert("insert into resource (name,ename,url,type,create_time,update_time) values (#{name},#{ename},#{url},#{type},#{createTime},#{updateTime});")
+    @SelectKey(statement = "SELECT LAST_INSERT_ID() ", keyProperty = "id", before = false, resultType = int.class)
+    public int insert(Resource resource);
+
+    /**
+     * 更新非空
+     * @param resource
+     * @return
+     */
+    public int updateEntity(Resource resource);
+
+
+    /**
+     * 删除特定id的资源
+     * @param id
+     * @return
+     */
+    @Delete("delete from resource where id = #{id}; ")
+    public int delete(@Param(value = "id")Integer id);
 }

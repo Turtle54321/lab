@@ -41,9 +41,14 @@
         </init-param>
         <load-on-startup>2</load-on-startup>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>springmvc</servlet-name>
         <url-pattern>*.htm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>springmvc</servlet-name>
+        <url-pattern>*.do</url-pattern>
     </servlet-mapping>
 
     <error-page>

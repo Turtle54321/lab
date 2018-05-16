@@ -16,7 +16,7 @@ public interface NewsDao {
      * @param num 取的数量
      * @return
      */
-    @Select("select * from news where type=#{type} limit #{start},#{num};")
+    @Select("select * from news where type=#{type} order by create_time desc limit #{start},#{num};")
     public List<News> getEntityListByPage(@Param(value = "type") Integer type, @Param(value = "start") int start, @Param(value = "num") int num);
 
     /**
@@ -35,4 +35,29 @@ public interface NewsDao {
      */
     @Select("select * from news where id = #{id};")
     public News getEntityById(@Param(value = "id") Integer id);
+
+    /**
+     * 插入新闻
+     * @param news
+     * @return
+     */
+    @Insert("insert into news (title,etitle,content,econtent,url,type,create_time,update_time) values (#{title},#{etitle},#{content},#{econtent},#{url},#{type},#{createTime},#{updateTime});")
+    @SelectKey(statement = "SELECT LAST_INSERT_ID() ", keyProperty = "id", before = false, resultType = int.class)
+    public int insert(News news);
+
+    /**
+     * 对传入news非空的部分进行更新
+     * @param news
+     * @return
+     */
+    public int updateEntity(News news);
+
+    /**
+     * 删除新闻
+     * @param id
+     * @return
+     */
+    @Delete("delete from news where id = #{id};")
+    public int delete(@Param(value = "id")Integer id);
+
 }

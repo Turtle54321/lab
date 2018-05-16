@@ -1,7 +1,7 @@
 package com.xhk.lab.rmodel;
 
 /**
- * create by xhk on 2018/4/30
+ * create by xhk on 2018/4/26
  */
 public class ResourceGetRequest {
     private Integer whichPage;

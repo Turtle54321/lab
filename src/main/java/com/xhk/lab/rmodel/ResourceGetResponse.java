@@ -5,7 +5,7 @@ import com.xhk.lab.model.Resource;
 import java.util.List;
 
 /**
- * create by xhk on 2018/4/30
+ * create by xhk on 2018/4/26
  */
 public class ResourceGetResponse {
     private List<Resource> resourceList;

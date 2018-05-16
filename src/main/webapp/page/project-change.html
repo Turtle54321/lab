@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>实验室后台管理系统</title>
+    <link href="../static/base/img/favicon.ico" rel="shortcut icon" />
+    <#include "/widget/ad-header/header.html"/>
+    <!--<link rel="news.createTimestylesheet" type="text/css" href="../static/page/index-manage/index-manage.css">-->
+    <link rel="stylesheet" type="text/css" href="../static/base/js/datetimepicker/datetimepicker.css">
+    <link rel="stylesheet" type="text/css" href="../widget/ui/pagination/pagination.css">
+    <link rel="stylesheet" href="../static/layui/css/layui.css"  media="all">
+
+</head>
+<body>
+<!--nav-->
+<#include "/widget/ad-nav/nav.html"/>
+<@adminNav '项目管理'/>
+<div class="news-change">
+    <div class="admin-container">
+        <div class="admin-content">
+            <form id="form" class="admin-ui-form form layui-form layui-form-pane" action="news-change.do" method="post" >
+                <div class="layui-form-item">
+                    <label class="layui-form-label">外链网址</label>
+                    <div class="layui-input-block">
+                        <input name="url" class="layui-input" lay-verify="my_url" placeholder="请输入url（如引用外链，下方中英文的标题也需要填）" <#if news??&&news.url??>value="${news.url}"</#if> >
+                    </div>
+                </div>
+                <blockquote class="layui-elem-quote">中文版</blockquote>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">标题</label>
+                    <div class="layui-input-block">
+                        <input name="title" class="layui-input" lay-verify="required" required placeholder="请输入标题" <#if news??>value="${news.title}"</#if>/>
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">内容</label>
+                    <div class="layui-input-block">
+                        <div id="editorZH">
+                            <#if news??>${news.content}<#else><p>请输入...</p></#if>
+                        </div>
+                    </div>
+                    <input name="id" class="layui-hide" <#if news??>value="${news.id}"</#if>>
+                    <input id="type" name="type" class="layui-hide" value="2">
+                    <textarea id="content" name="content" class="layui-hide"></textarea>
+                </div>
+
+                <blockquote class="layui-elem-quote">English Version</blockquote>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">Title</label>
+                    <div class="layui-input-block">
+                        <input name="etitle" class="layui-input" lay-verify="required" required placeholder="Please input title" <#if news??>value="${news.etitle}"</#if>/>
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">Content</label>
+                    <div class="layui-input-block">
+                        <div id="editorEN">
+                            <#if news??>${news.econtent}<#else><p>Please input ...</p></#if>
+                        </div>
+                    </div>
+                    <textarea id="econtent" name="econtent" class="layui-hide"></textarea>
+                </div>
+                <br>
+                <div style="text-align: center">
+                    <button lay-submit  class="ui-btn small" lay-filter="*" >提交</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!--sidebar-->
+<#include "/widget/ad-sidebar/sidebar.html"/>
+<@adminSidebar '4'/>
+<!--引入jquery-->
+<#include "/widget/ad-script/ad-script.html"/>
+
+<script type="text/javascript" src="../static/wangEditor/wangEditor.min.js"></script>
+<script src="../static/layui/layui.js" charset="utf-8"></script>
+<script src="../static/base/js/datetimepicker/moment.js" crossorigin="anonymous"></script>
+<script src="../static/base/js/datetimepicker/datetimepicker.js" crossorigin="anonymous"></script>
+<script data-main="../static/page/news-manage/news-change.js" src="../static/base/js/require.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

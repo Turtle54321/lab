@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>实验室后台管理系统</title>
+    <link href="../static/base/img/favicon.ico" rel="shortcut icon" />
+    <#include "/widget/ad-header/header.html"/>
+    <!--<link rel="stylesheet" type="text/css" href="../static/page/index-manage/index-manage.css">-->
+    <link rel="stylesheet" type="text/css" href="../static/base/js/datetimepicker/datetimepicker.css">
+    <link rel="stylesheet" type="text/css" href="../widget/ui/pagination/pagination.css">
+    <link rel="stylesheet" href="../static/layui/css/layui.css"  media="all">
+</head>
+<body>
+<!--nav-->
+<#include "/widget/ad-nav/nav.html"/>
+<@adminNav '首页轮播图片管理'/>
+<div class="index-manage">
+    <div class="admin-container">
+        <div class="admin-content">
+
+            <table class="admin-ui-table">
+                <thead>
+                <tr>
+                    <th>图片</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <#if list??>
+                <#list list as img>
+                <#setting datetime_format="yyyy-MM-dd hh:mm:ss"/>
+                <tr>
+                    <!--<td><#if img.url??><img src="${img.url}"><#else>暂无图片</#if></td>-->
+                    <td><img class="layui-upload-img" id="img${img.seq}" <#if img.url??>src="${img.url}"</#if>></td>
+                    <td><a type="button" class="ui-btn small upload-btn" id="${img.seq}"><#if img.url??>更换<#else>上传</#if></a></td>
+                </tr>
+                </#list>
+                <input id="tmp" class="layui-hide"/>
+                <#else>
+                暂无图片
+            </#if>
+            </tbody>
+            </table>
+            <div class="pagination"></div>
+        </div>
+    </div>
+</div>
+
+<!--sidebar-->
+<#include "/widget/ad-sidebar/sidebar.html"/>
+<@adminSidebar '0'/>
+<!--引入jquery-->
+<#include "/widget/ad-script/ad-script.html"/>
+
+<script>
+    window.PageData = {
+        listCount: "<#if allCount??>${allCount}</#if>" || 100,
+        depositorStatus:"<#if depositorStatus??>${depositorStatus}</#if>",
+        fdsStatus:"<#if fdsStatus??>${fdsStatus}</#if>"
+    };
+</script>
+<script src="../static/base/js/datetimepicker/moment.js" crossorigin="anonymous"></script>
+<script src="../static/base/js/datetimepicker/datetimepicker.js" crossorigin="anonymous"></script>
+<script data-main="../static/page/index-manage/index-manage.js" src="../static/base/js/require.js" crossorigin="anonymous"></script>
+<script src="../static/layui/layui.js" charset="utf-8"></script>
+
+</body>
+</html>

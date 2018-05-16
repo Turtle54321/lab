@@ -1,7 +1,10 @@
 package com.xhk.lab.dao;
 
 import com.xhk.lab.model.IndexImg;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectKey;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -16,5 +19,17 @@ public interface IndexImgDao {
      */
     @Select("select * from index_img order by seq asc limit 3;")
     public List<IndexImg> getEntityList();
+
+    /**
+     * 插入轮播图片
+     * @param indexImg
+     * @return
+     */
+    @Insert("insert into index_img (url, seq, create_time, update_time) values (#{url},#{seq},#{createTime},#{updateTime});")
+    @SelectKey(statement = "SELECT LAST_INSERT_ID() ", keyProperty = "id", before = false, resultType = int.class)
+    public int insert(IndexImg indexImg);
+
+    @Update("update index_img set url=#{url}, update_time=#{updateTime} where seq=#{seq};")
+    public Integer updateEntity(IndexImg indexImg);
 
 }

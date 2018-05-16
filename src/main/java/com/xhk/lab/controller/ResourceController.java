@@ -2,8 +2,8 @@ package com.xhk.lab.controller;
 
 import com.xhk.lab.common.aspect.RetFormat;
 import com.xhk.lab.rmodel.IndexImgGetResponse;
-import com.xhk.lab.rmodel.ResourceGetRequest;
-import com.xhk.lab.rmodel.ResourceGetResponse;
+import com.xhk.lab.rmodel.ResourceListGetRequest;
+import com.xhk.lab.rmodel.ResourceListGetResponse;
 import com.xhk.lab.service.IndexService;
 import com.xhk.lab.service.ResourceService;
 import org.slf4j.Logger;
@@ -32,10 +32,10 @@ public class ResourceController {
         whichPage = whichPage == null ? 1 : whichPage;
         perCount = perCount == null ? 10 : perCount;
         language = language == null ? 1 : language;
-        ResourceGetRequest request = new ResourceGetRequest();
+        ResourceListGetRequest request = new ResourceListGetRequest();
         request.setPerCount(perCount);
         request.setWhichPage(whichPage);
-        ResourceGetResponse response = resourceService.getResource(request);
+        ResourceListGetResponse response = resourceService.getResource(request);
         IndexImgGetResponse responseImg = indexService.getIndexImg();
         modelMap.addAttribute("indexImgList",responseImg.getImgUrlList());
         modelMap.addAttribute("language",language);

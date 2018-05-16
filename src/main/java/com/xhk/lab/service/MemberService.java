@@ -6,7 +6,7 @@ import com.xhk.lab.dao.MemberDao;
 import com.xhk.lab.model.Member;
 import com.xhk.lab.rmodel.MemberDetailGetRequest;
 import com.xhk.lab.rmodel.MemberDetailGetResponse;
-import com.xhk.lab.rmodel.MemberGetResponse;
+import com.xhk.lab.rmodel.AllMemberGetResponse;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +26,7 @@ public class MemberService {
     @Autowired
     private MemberDao memberDao;
 
-    public MemberGetResponse getMember(){
+    public AllMemberGetResponse getMember(){
         List<Member> memberList = memberDao.getEntityList();
         List<Member> teacherList = new ArrayList<>();
         List<Member> doctotList = new ArrayList<>();
@@ -60,7 +60,7 @@ public class MemberService {
                 throw new ProjectException(ErrorCodeMap.SYSTEM_ERROR);
             }
         }
-        MemberGetResponse response = new MemberGetResponse();
+        AllMemberGetResponse response = new AllMemberGetResponse();
         response.setTeacherList(teacherList);
         response.setDoctorList(doctotList);
         response.setMasterList(masterList);

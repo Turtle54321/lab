@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class LoginInterceptor implements HandlerInterceptor {
 	private static Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
-	
+
 //	@Autowired
 //	BackUserDao backUserDao;
 
@@ -31,16 +31,16 @@ public class LoginInterceptor implements HandlerInterceptor {
 	 *
 	 */
 	public boolean preHandle(HttpServletRequest req, HttpServletResponse res, Object arg2) throws Exception {
-		
+
 		//从redis中获取用户登录信息
 		String sessionId = HttpUtil.getHttpRequest().getSession().getId();
 		Object usernaemObj = RedisUtil.getValue(sessionId);
 		logger.info("username=" + usernaemObj);
-		logger.info(req.getContextPath() + "/back/user/login.do");
-		
+		logger.info(req.getContextPath() + "/login.htm");
+
 		//没有登录或者登录时间到期
 		if (usernaemObj == null) {
-			res.sendRedirect(req.getContextPath() + "/back/user/login.do");
+			res.sendRedirect(req.getContextPath() + "/login.htm");
 			return false;
 		}
 		String username = usernaemObj.toString();
@@ -53,7 +53,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 //				return false;
 //			}
 //		}
-		
+
 //		BackUser conds = new BackUser();
 //		conds.setUsername(username);
 //		List<BackUser> list = backUserDao.findEntityListByCond(conds);
@@ -61,6 +61,6 @@ public class LoginInterceptor implements HandlerInterceptor {
 //			res.sendRedirect(req.getContextPath() + "/back/user/login.do");
 //			return false;
 //		}
-		return true; 
+		return true;
 	}
 }

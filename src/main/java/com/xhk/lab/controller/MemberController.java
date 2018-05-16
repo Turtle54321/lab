@@ -6,7 +6,7 @@ import com.xhk.lab.common.constant.ErrorCodeMap;
 import com.xhk.lab.rmodel.IndexImgGetResponse;
 import com.xhk.lab.rmodel.MemberDetailGetRequest;
 import com.xhk.lab.rmodel.MemberDetailGetResponse;
-import com.xhk.lab.rmodel.MemberGetResponse;
+import com.xhk.lab.rmodel.AllMemberGetResponse;
 import com.xhk.lab.service.IndexService;
 import com.xhk.lab.service.MemberService;
 import org.slf4j.Logger;
@@ -39,7 +39,7 @@ public class MemberController {
     @RetFormat(isPage = true)
     public String member(Integer language, ModelMap modelMap){
         language = language == null ? 1 : language;
-        MemberGetResponse response = memberService.getMember();
+        AllMemberGetResponse response = memberService.getMember();
         IndexImgGetResponse responseImg = indexService.getIndexImg();
         modelMap.addAttribute("indexImgList",responseImg.getImgUrlList());
         modelMap.addAttribute("teacherList",response.getTeacherList());
