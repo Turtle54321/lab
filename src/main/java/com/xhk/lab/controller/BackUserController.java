@@ -63,7 +63,7 @@ public class BackUserController {
         session.setAttribute("username",request.getUsername());
         Map ret = new HashMap<>();
         ret.put("status",1);
-        ret.put("redirectURL","index-manage.htm");
+        ret.put("redirectURL","index-manage.do");
         return ret;
     }
 

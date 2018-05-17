@@ -70,7 +70,7 @@
                     <h4><#if language == 1>${member.name}<#else>${member.ename}</#if></h4>
                     <a href="<#if member.contentUrl??&&member.contentUrl != ''>${member.contentUrl}<#else>member-detail.htm?memberId=${member.id}&language=${language}</#if>" class="preview" title="<#if language == 1>${member.name}<#else>${member.ename}</#if>"><img
                             class="index-head-img" src="${member.headUrl}" alt=""/></a>
-                    <h4><#if language == 1>${member.note}<#else>${member.enote}</#if></h4>
+                    <h5><#if language == 1>${member.note}<#else>${member.enote}</#if></h5>
                 </div>
                 <div class="box_razd"></div>
                 <#if member_index % 5 == 4  || !member_has_next>
