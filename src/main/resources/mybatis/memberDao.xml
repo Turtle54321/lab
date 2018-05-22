@@ -19,7 +19,7 @@
                 ename = #{ename,jdbcType=VARCHAR},
             </if>
             <if test="headUrl != null and headUrl != ''">
-                head_url = #{head_url,jdbcType=VARCHAR},
+                head_url = #{headUrl,jdbcType=VARCHAR},
             </if>
             <if test="status != null">
                 status = #{status,jdbcType=INTEGER},
