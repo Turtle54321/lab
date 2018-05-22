@@ -44,6 +44,8 @@ public class LoginInterceptor implements HandlerInterceptor {
 			return false;
 		}
 		String username = usernaemObj.toString();
+		//更新失效时间
+        RedisUtil.setValue(sessionId,username,3600);
 		//判断是否是被踢下线
 //		String oldSessionId = RedisUtil.getValue(FdsConstant.REDIS_SINGLE_LOGIN + username);
 //		String loginFlag = RedisUtil.getValue(FdsConstant.REDIS_ONLINE_INFO + oldSessionId);

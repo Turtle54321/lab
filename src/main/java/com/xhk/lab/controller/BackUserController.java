@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
@@ -54,12 +55,14 @@ public class BackUserController {
         if (request.getPassword() == null || request.getPassword() == null){
             throw new ProjectException(ErrorCodeMap.PARAMETER_EMPTY_ERROR);
         }
-        //判断用户是否存在，将用户登录信息保存在redis中，设置时间为30分钟（1800秒）
+        //判断用户是否存在，将用户登录信息保存在redis中，设置时间为60分钟（3600秒）
         backUserService.checkLogin(request);
-        String sessionId = HttpUtil.getHttpRequest().getSession().getId();
+        HttpServletRequest httpServletRequest = HttpUtil.getHttpRequest();
+        String sessionId = httpServletRequest.getSession().getId();
         logger.info("登录sessionId: "+sessionId);
+        logger.info("登录ip："+HttpUtil.getIpAddress(httpServletRequest));
 
-        RedisUtil.setValue(sessionId,request.getUsername(),1800);
+        RedisUtil.setValue(sessionId,request.getUsername(),3600);
         session.setAttribute("username",request.getUsername());
         Map ret = new HashMap<>();
         ret.put("status",1);
