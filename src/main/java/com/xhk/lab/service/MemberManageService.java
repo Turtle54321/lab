@@ -2,6 +2,7 @@ package com.xhk.lab.service;
 
 import com.xhk.lab.common.ProjectException;
 import com.xhk.lab.common.constant.ErrorCodeMap;
+import com.xhk.lab.common.constant.ProjectConstant;
 import com.xhk.lab.dao.MemberDao;
 import com.xhk.lab.model.Member;
 import com.xhk.lab.rmodel.*;
@@ -29,6 +30,7 @@ public class MemberManageService {
         int start = (request.getWhichPage()-1) * request.getPerCount();
         List<Member> memberList = memberDao.getEntityListByPageStatus(request.getStatus(),start,request.getPerCount());
         for (int i = 0; i < memberList.size(); i++){
+            memberList.get(i).setHeadUrl(ProjectConstant.MEMBER_IMG_DIR + "/" + memberList.get(i).getHeadUrl());
             if (StringUtils.isBlank(memberList.get(i).getContent())){
                 memberList.get(i).setContentUrl(null);
             }
@@ -67,6 +69,7 @@ public class MemberManageService {
 
     public MemberDetailGetResponse getMemberDetail(MemberDetailGetRequest request){
         Member member = memberDao.getEntityById(request.getMemberId());
+        member.setHeadUrl(ProjectConstant.MEMBER_IMG_DIR+"/"+member.getHeadUrl());
         MemberDetailGetResponse response = new MemberDetailGetResponse();
         response.setMember(member);
         return response;

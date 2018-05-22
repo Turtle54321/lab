@@ -3,6 +3,19 @@ define([
     '/widget/ui/utils/utils.js',
     "/widget/ui/dialog/dialog.js"
 ],function(formHandle,Utils,Dialog){
+    layui.use('form', function(){
+        var form = layui.form;
+        form.verify({
+            my_url:function(value, item) { //value：表单的值、item：表单的DOM对象
+                // /(^#)|(^http(s*):\/\/[^\s]+\.[^\s]+)/
+                if (value.length > 0){
+                    if (!/(^#)|(^http(s*):\/\/[^\s]+\.[^\s]+)/.test(value)){
+                        return '链接格式不正确';
+                    }
+                }
+            }
+        });
+    });
     var E = window.wangEditor;
     var editorZH = new E('#editorZH');
     var editorEN = new E('#editorEN');
@@ -28,7 +41,6 @@ define([
     var form = new formHandle({form:$form,uploadType:'ajax',is_check:false});
 
     form.on('ajax-data',function(data,cb){
-        console.log(data)
         var _data = {
             id:data.data['id'],
             type:data.data['type'],
@@ -36,7 +48,7 @@ define([
             etitle:data.data['etitle'],
             content:data.data['content'],
             econtent:data.data['econtent']
-        }
+        };
         cb(_data);
     });
 
@@ -63,11 +75,11 @@ define([
             location.href = url+"?whichPage=1&perCount=8";
         },2000);
 
-    })
+    });
 
     //错误回调
     form.on('ajax-error',function(ret){
         Dialog.tip(ret.error_message);
     })
 
-})
+});

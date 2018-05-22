@@ -54,7 +54,10 @@ define([
     var $form = $mod.find('.form');
     var form = new formHandle({form:$form,uploadType:'ajax',is_check:false});
     var $headImgUpload = $mod.find('#head_img_upload');
-    // $('.note').hide();
+    if ($('#select').val() == 1){
+        $('.note').show();
+        $('#graduate').hide();
+    }
 
     var init = function () {
         initDatePicker();
@@ -62,7 +65,6 @@ define([
     }();
 
     form.on('ajax-data',function(data,cb){
-        console.log(data)
         var _data = {
             id:data.data['id'],
             name:data.data['name'],

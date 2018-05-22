@@ -21,6 +21,10 @@ public class ErrorCodeMap {
     public final static int FAIL_TO_ADD = 1000000008;
     public final static int FAIL_TO_UPDATE = 1000000009;
 
+    public final static int LACK_HEAD_URL = 1000000011;
+
+
+
     private static Map<Integer, String> errorCodeMap = new HashMap<>();
     static {
         errorCodeMap.put(UNKNOWN, "请求出错");
@@ -33,6 +37,7 @@ public class ErrorCodeMap {
         errorCodeMap.put(PARAMETER_LACK_ERROR, "缺少参数");
         errorCodeMap.put(FAIL_TO_ADD, "新增失败");
         errorCodeMap.put(FAIL_TO_UPDATE, "更新失败");
+        errorCodeMap.put(LACK_HEAD_URL, "请上传头像");
     }
     public static String getErrorMsg(int errorNO) {
         return errorCodeMap.get(errorNO);

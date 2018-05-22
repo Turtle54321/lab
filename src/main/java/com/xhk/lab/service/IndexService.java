@@ -53,6 +53,9 @@ public class IndexService {
             projects.add(project);
         }
         List<Member> memberList = memberDao.getEntityByRandon(6);
+        for (int i = 0; i< memberList.size();i++){
+            memberList.get(i).setHeadUrl(ProjectConstant.MEMBER_IMG_DIR+"/"+memberList.get(i).getHeadUrl());
+        }
         IndexDisplayResponse response = new IndexDisplayResponse();
         response.setIntroduction(introduction);
         response.setMemberList(memberList);

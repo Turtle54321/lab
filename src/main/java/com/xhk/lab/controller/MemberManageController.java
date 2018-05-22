@@ -6,6 +6,8 @@ import com.xhk.lab.common.constant.ErrorCodeMap;
 import com.xhk.lab.model.Member;
 import com.xhk.lab.rmodel.*;
 import com.xhk.lab.service.MemberManageService;
+import com.xhk.lab.utils.StringUtil;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,11 +60,18 @@ public class MemberManageController {
     @RequestMapping("member-change")
     @ResponseBody
     @RetFormat
-    public Object merberChange(Member member){
+    public Object memberChange(Member member){
         if (member == null){
             throw new ProjectException(ErrorCodeMap.PARAMETER_EMPTY_ERROR);
         }
         MemberChangeRequest request = new MemberChangeRequest();
+        String headUrl = member.getHeadUrl();
+        if (StringUtils.isBlank(headUrl)){
+            logger.error("lack head url");
+            throw new ProjectException(ErrorCodeMap.LACK_HEAD_URL);
+        }
+        // 提取文件名
+        member.setHeadUrl(headUrl.substring(headUrl.lastIndexOf("/")+1));
         request.setMember(member);
         memberManageService.changeMember(request);
         return "success";
