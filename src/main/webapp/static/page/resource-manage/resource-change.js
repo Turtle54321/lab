@@ -39,14 +39,14 @@ define([
             }
 
             ,done: function(res){
-                if(res.data&&ret.error_no==0){
+                if(res.data&&res.error_no==0){
                     Dialog.tip("提交成功");
                     setTimeout(function(){//两秒后跳转
                         location.href = "/resource-manage.do?whichPage=1&perCount=8";
                     },2000);
 
                 }else{
-                    Dialog.tip(ret.error_message);
+                    Dialog.tip(res.error_message);
                 }
 
             }

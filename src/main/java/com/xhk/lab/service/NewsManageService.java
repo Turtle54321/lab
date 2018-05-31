@@ -41,16 +41,14 @@ public class NewsManageService {
 
     public void addNews(NewsAddRequest request){
         News news = new News();
+        news.setContent(request.getContent());
+        news.setEcontent(request.getEcontent());
         news.setTitle(request.getTitle());
         news.setEtitle(request.getEtitle());
         news.setType(request.getType());
         news.setCreateTime(DateUtil.getCurrentTime());
         news.setUpdateTime(DateUtil.getCurrentTime());
-        if (StringUtils.isBlank(request.getUrl())){
-            news.setContent(request.getContent());
-            news.setEcontent(request.getEcontent());
-        }
-        else{
+        if (!StringUtils.isBlank(request.getUrl())){
             //直接引用新闻
             news.setUrl(request.getUrl());
         }
@@ -68,11 +66,9 @@ public class NewsManageService {
         news.setEtitle(request.getEtitle());
         news.setType(request.getType());
         news.setUpdateTime(DateUtil.getCurrentTime());
-        if (StringUtils.isBlank(request.getUrl())){
-            news.setContent(request.getContent());
-            news.setEcontent(request.getEcontent());
-        }
-        else{
+        news.setContent(request.getContent());
+        news.setEcontent(request.getEcontent());
+        if (!StringUtils.isBlank(request.getUrl())){
             //直接引用新闻
             news.setUrl(request.getUrl());
         }

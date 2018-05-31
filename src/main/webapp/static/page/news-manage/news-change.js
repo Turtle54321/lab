@@ -47,7 +47,8 @@ define([
             title:data.data['title'],
             etitle:data.data['etitle'],
             content:data.data['content'],
-            econtent:data.data['econtent']
+            econtent:data.data['econtent'],
+            url:data.data['url']
         };
         cb(_data);
     });
