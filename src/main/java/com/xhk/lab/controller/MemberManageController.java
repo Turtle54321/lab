@@ -70,6 +70,9 @@ public class MemberManageController {
             logger.error("lack head url");
             throw new ProjectException(ErrorCodeMap.LACK_HEAD_URL);
         }
+        if (StringUtils.isBlank(member.getContentUrl())){
+            member.setContentUrl(null);
+        }
         // 提取文件名
         member.setHeadUrl(headUrl.substring(headUrl.lastIndexOf("/")+1));
         request.setMember(member);

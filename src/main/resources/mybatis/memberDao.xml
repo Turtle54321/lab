@@ -36,9 +36,7 @@
             <if test="econtent != null and econtent != ''">
                 econtent = #{econtent,jdbcType=VARCHAR},
             </if>
-            <if test="contentUrl != null and contentUrl != ''">
-                content_url = #{contentUrl,jdbcType=VARCHAR},
-            </if>
+            content_url = #{contentUrl,jdbcType=VARCHAR},
             <if test="enterTime != null">
                 enter_time = #{enterTime,jdbcType=INTEGER},
             </if>
