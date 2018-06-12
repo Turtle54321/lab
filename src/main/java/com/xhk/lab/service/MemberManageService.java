@@ -52,8 +52,13 @@ public class MemberManageService {
         // 确认urlName无重复
         List<Member> memberList = memberDao.getEntityListByUrlName(request.getMember().getUrlName());
         if (!CollectionUtils.isEmpty(memberList)){
-            // urlName重复
-            throw new ProjectException(ErrorCodeMap.URL_NAME_REPEAT);
+            if (memberList.size()==1&&memberList.get(0).getId()==request.getMember().getId()){
+                //修改自己的信息
+            }
+            else{
+                // urlName重复
+                throw new ProjectException(ErrorCodeMap.URL_NAME_REPEAT);
+            }
         }
         Member member  = request.getMember();
         member.setUpdateTime(DateUtil.getCurrentTime());
