@@ -22,6 +22,9 @@ public class ErrorCodeMap {
     public final static int FAIL_TO_UPDATE = 1000000009;
 
     public final static int LACK_HEAD_URL = 1000000011;
+    public final static int NO_MEMBER = 1000000012;
+    public final static int URL_ERROR = 1000000013;
+    public final static int URL_NAME_REPEAT = 1000000014;
 
 
 
@@ -38,6 +41,9 @@ public class ErrorCodeMap {
         errorCodeMap.put(FAIL_TO_ADD, "新增失败");
         errorCodeMap.put(FAIL_TO_UPDATE, "更新失败");
         errorCodeMap.put(LACK_HEAD_URL, "请上传头像");
+        errorCodeMap.put(NO_MEMBER, "该成员不存在");
+        errorCodeMap.put(URL_ERROR, "URL错误");
+        errorCodeMap.put(URL_NAME_REPEAT, "该URL名称已被使用");
     }
     public static String getErrorMsg(int errorNO) {
         return errorCodeMap.get(errorNO);

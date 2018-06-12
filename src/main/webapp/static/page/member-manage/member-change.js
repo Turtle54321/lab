@@ -70,6 +70,7 @@ define([
             name:data.data['name'],
             ename:data.data['ename'],
             headUrl:data.data['headUrl'],
+            urlName:data.data['urlName'],
             status:data.data['status'],
             note:data.data['note'],
             enote:data.data['enote'],
@@ -78,7 +79,7 @@ define([
             contentUrl:data.data['contentUrl'],
             enterTime:data.data['enterTime'],
             graduateTime:data.data['graduateTime']
-        }
+        };
         _data.enterTime = _data.enterTime ? new Date(_data.enterTime) / 1000 : '';
         _data.graduateTime = _data.graduateTime ? new Date(_data.graduateTime) / 1000 : '';
         cb(_data);

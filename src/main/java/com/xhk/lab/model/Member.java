@@ -11,6 +11,7 @@ public class Member {
     private Integer id;
     private String name;
     private String ename;
+    private String urlName;
     private String headUrl;
     private Integer status; //1：老师 2：博士生 3：硕士生
     private String note;
@@ -41,6 +42,14 @@ public class Member {
 
     public String getEname() {
         return ename;
+    }
+
+    public String getUrlName() {
+        return urlName;
+    }
+
+    public void setUrlName(String urlName) {
+        this.urlName = urlName;
     }
 
     public void setEname(String ename) {

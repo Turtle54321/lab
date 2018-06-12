@@ -5,9 +5,8 @@ import com.xhk.lab.common.constant.ErrorCodeMap;
 import com.xhk.lab.common.constant.ProjectConstant;
 import com.xhk.lab.dao.MemberDao;
 import com.xhk.lab.model.Member;
-import com.xhk.lab.rmodel.MemberDetailGetRequest;
-import com.xhk.lab.rmodel.MemberDetailGetResponse;
-import com.xhk.lab.rmodel.AllMemberGetResponse;
+import com.xhk.lab.rmodel.*;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -71,10 +70,22 @@ public class MemberService {
         return response;
     }
 
-    public MemberDetailGetResponse getMemberDetail(MemberDetailGetRequest request){
-        Member member = memberDao.getEntityById(request.getMemberId());
+//    public MemberDetailGetResponse getMemberDetail(MemberDetailGetRequest request){
+//        Member member = memberDao.getEntityById(request.getMemberId());
+//        member.setHeadUrl(ProjectConstant.MEMBER_IMG_DIR+"/"+member.getHeadUrl());
+//        MemberDetailGetResponse response = new MemberDetailGetResponse();
+//        response.setMember(member);
+//        return response;
+//    }
+
+    public PeopleDetailGetResponse getPeopleDetail(PeopleDetailGetRequest request){
+        List<Member> memberList = memberDao.getEntityListByUrlName(request.getUrlName());
+        if (CollectionUtils.isEmpty(memberList)){
+            throw new ProjectException(ErrorCodeMap.PARAMETER_ERROR);
+        }
+        Member member = memberList.get(0);
+        PeopleDetailGetResponse response = new PeopleDetailGetResponse();
         member.setHeadUrl(ProjectConstant.MEMBER_IMG_DIR+"/"+member.getHeadUrl());
-        MemberDetailGetResponse response = new MemberDetailGetResponse();
         response.setMember(member);
         return response;
     }

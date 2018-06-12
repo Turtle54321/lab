@@ -91,7 +91,7 @@
                         </tr>
                         <tr>
                             </#if>
-                            <td><a href= "<#if member.contentUrl??&&member.contentUrl != ''>${member.contentUrl}<#else>/member-detail.htm?memberId=${member.id}&language=${language}</#if>" ><img class="index-head-img" src="${member.headUrl}" alt="<#if language == 1>${member.name}<#else>${member.ename}</#if>"/></a></td>
+                            <td><a href= "<#if member.contentUrl??&&member.contentUrl != ''>${member.contentUrl}<#else>/${member.urlName}/biography.htm?language=${language}</#if>" ><img class="index-head-img" src="${member.headUrl}" alt="<#if language == 1>${member.name}<#else>${member.ename}</#if>"/></a></td>
                             </#list>
                             </#if>
                         </tr>

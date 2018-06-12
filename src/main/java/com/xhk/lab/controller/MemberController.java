@@ -3,17 +3,16 @@ package com.xhk.lab.controller;
 import com.xhk.lab.common.ProjectException;
 import com.xhk.lab.common.aspect.RetFormat;
 import com.xhk.lab.common.constant.ErrorCodeMap;
-import com.xhk.lab.rmodel.IndexImgGetResponse;
-import com.xhk.lab.rmodel.MemberDetailGetRequest;
-import com.xhk.lab.rmodel.MemberDetailGetResponse;
-import com.xhk.lab.rmodel.AllMemberGetResponse;
+import com.xhk.lab.rmodel.*;
 import com.xhk.lab.service.IndexService;
 import com.xhk.lab.service.MemberService;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -52,19 +51,34 @@ public class MemberController {
         return "page/member";
     }
 
-    @RequestMapping("member-detail")
+//    @RequestMapping("member-detail")
+//    @RetFormat(isPage = true)
+//    public String memberDetail(Integer memberId, Integer language, ModelMap modelMap){
+//        if(memberId == null){
+//            throw new ProjectException(ErrorCodeMap.PARAMETER_ERROR);
+//        }
+//        language = language == null ? 1 : language;
+//        MemberDetailGetRequest request = new MemberDetailGetRequest();
+//        request.setMemberId(memberId);
+//        MemberDetailGetResponse response = memberService.getMemberDetail(request);
+//        modelMap.addAttribute("member",response.getMember());
+//        modelMap.addAttribute("language",language);
+//        return "page/member-detail";
+//    }
+
+    @RequestMapping("{urlName}/biography")
     @RetFormat(isPage = true)
-    public String memberDetail(Integer memberId, Integer language, ModelMap modelMap){
-        if(memberId == null){
-            throw new ProjectException(ErrorCodeMap.PARAMETER_ERROR);
+    public String teacherDetail(Integer language, @PathVariable String urlName, ModelMap modelMap){
+
+        if (StringUtils.isBlank(urlName)){
+            throw new ProjectException(ErrorCodeMap.URL_ERROR);
         }
         language = language == null ? 1 : language;
-        MemberDetailGetRequest request = new MemberDetailGetRequest();
-        request.setMemberId(memberId);
-        MemberDetailGetResponse response = memberService.getMemberDetail(request);
+        PeopleDetailGetRequest request = new PeopleDetailGetRequest();
+        request.setUrlName(urlName);
+        PeopleDetailGetResponse response = memberService.getPeopleDetail(request);
         modelMap.addAttribute("member",response.getMember());
         modelMap.addAttribute("language",language);
-        return "page/member-detail";
-
+        return "page/biography";
     }
 }

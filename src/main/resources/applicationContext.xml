@@ -58,6 +58,7 @@
             <mvc:exclude-mapping path="/checkLogin.do" />
             <mvc:exclude-mapping path="/exit.do" />
             <mvc:exclude-mapping path="/*.htm" />
+            <mvc:exclude-mapping path="/*/*.htm" />
             <!-- 排除重置密码的请求路径 -->
             <mvc:exclude-mapping path="/back/user/getDisplayMofidyPwdPage.do" />
             <mvc:exclude-mapping path="/back/user/modifyBackUserPassword.do" />

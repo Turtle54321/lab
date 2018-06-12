@@ -53,7 +53,13 @@
                     </div>
                     <div class="layui-form-mid layui-word-aux">在读生勿填</div>
                 </div>
-
+                <div class="layui-form-item">
+                    <label class="layui-form-label">URL名称</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="urlName" required lay-verify="required" placeholder="请输入url名称" autocomplete="off" class="layui-input" <#if member??&&member.urlName??>value="${member.urlName}"</#if>>
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">如填<b> xhk</b>，则个人主页URL为 http://ip:port/<b>xhk</b>/biography.htm</div>
+                </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">个人外链</label>
                     <div class="layui-input-block">

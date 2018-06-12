@@ -54,7 +54,7 @@ public interface MemberDao {
      * @param member
      * @return
      */
-    @Insert("insert into member (name,ename,head_url,status,note,enote,content,econtent,content_url,enter_time,graduate_time,create_time,update_time) values (#{name},#{ename},#{headUrl},#{status},#{note},#{enote},#{content},#{econtent},#{contentUrl},#{enterTime},#{graduateTime},#{createTime},#{updateTime});")
+    @Insert("insert into member (name,ename,url_name,head_url,status,note,enote,content,econtent,content_url,enter_time,graduate_time,create_time,update_time) values (#{name},#{ename},#{urlName},#{headUrl},#{status},#{note},#{enote},#{content},#{econtent},#{contentUrl},#{enterTime},#{graduateTime},#{createTime},#{updateTime});")
     @SelectKey(statement = "SELECT LAST_INSERT_ID() ", keyProperty = "id", before = false, resultType = int.class)
     public int addEntity(Member member);
 
@@ -96,4 +96,19 @@ public interface MemberDao {
     @Select("select * from member where status = #{status} order by create_time desc limit #{start},#{num};")
     public List<Member> getEntityListByPageStatus(@Param(value = "status")Integer status,@Param(value = "start")Integer start,@Param(value = "num")Integer num );
 
+    /**
+     * 通过英文名获取成员
+     * @param ename
+     * @return
+     */
+    @Select("select * from member where ename = #{ename};")
+    public Member getEntityByEname(@Param(value = "ename") String ename);
+
+    /**
+     * 通过urlName获取成员
+     * @param urlName
+     * @return
+     */
+    @Select("select * from member where url_name=#{urlName};")
+    public List<Member> getEntityListByUrlName(@Param(value = "urlName") String urlName);
 }

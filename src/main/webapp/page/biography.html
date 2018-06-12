@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0037)https://cs.nju.edu.cn/daihp/index.htm -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="../static/base/img/favicon.ico" rel="shortcut icon" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="../static/biography/model.css" rel="stylesheet" type="text/css">
+    <link href="../static/biography/style.css" rel="stylesheet" type="text/css">
+    <title><#if language == 1>${member.name}的个人主页 <#else>${member.ename}'s homepage</#if></title>
+
+    <!-- Bootstrap core CSS -->
+
+    <!-- Bootstrap theme -->
+
+
+    <!-- Custom styles for this template -->
+
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]>
+    <script src="dh/ie8-responsive-file-warning.js"></script><![endif]-->
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="dh/html5shiv.js"></script>
+    <script src="dh/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">@media print {
+        #STTBimg {
+            display: none;
+        }
+
+        #STTBimg2 {
+            display: none;
+        }
+    }</style>
+</head>
+
+<body topmargin="0" marginheight="0" algin="center">
+<div id="container" style="width:1000px; margin-left:auto; margin-right:auto;">
+    <!-- Dai's Banner -->
+    <table width="100%" height="97" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+        <tbody>
+        <tr>
+            <td width="2" align="left" rowspan="1" valign="top" bgcolor="#003399"></td>
+            <td width="67%" align="left" valign="bottom"><img src="../static/biography/head.jpg" width="667"
+                                                                             height="120"></td>
+            <td width="13.6%" align="right" valign=""><p class="name"><font style="color:#0a1af6; font-size:32pt; font-family:华文楷体" vertical：middle> ${member.name}</font></p></td>
+            <td width="19%" align="left" valign=""><p class="name"><font style="color:#0a1af6; font-size:20pt; font-family:华文楷体" vertical：middle>(${member.ename})</font></p></td>
+            <td width="2" rowspan="1" valign="top" bgcolor="#003399"></td>
+        </tr>
+        <tr>
+            <td height="1" colspan="4" nowrap="" background="../static/biography/dots.gif" algin="center"><img
+                    src="../static/biography/blank.gif" width="1" height="1"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Title and Category Bar -->
+
+    <!-- Page Body -->
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+        <tbody>
+
+
+        <tr>
+            <td width="2" rowspan="1" valign="top" bgcolor="#003399"></td>
+            <td>
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                    <tr valign="top">
+                        <td valign="top">
+                            <table width="180px" border="0" cellpadding="0" cellspacing="10" class="textmain">
+                                <tbody>
+                                <tr valign="top">
+                                    <td><p align="center" margin="100%"><img src="${member.headUrl}" width="180"
+                                                                             height="240" alt="dhp" margin="100%"></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <ul class="leftmenu">
+                                            <li><b>
+                                                <#if member.status == 1><#if language==1><#if member.note??>${member.note}</#if><#else><#if member.enote??>${member.enote}</#if></#if>
+                                                <#else>
+                                                <#if member.status == 2>
+                                                    <#if language==1>博士生<#else>PhD.</#if></b></li>
+                                                <#else><#if language==1>硕士生<#else>Master</#if>
+                                                </#if>
+                                                <#setting datetime_format="yyyy"/>
+                                                <li><b>${(member.enterTime*1000)?number_to_datetime}
+                                            </#if>
+                                            </b></li>
+
+                                        </ul>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </td>
+                        <td width="1" rowspan="1" valign="top" background="../static/biography/dots.gif"><img
+                                src="../static/biography/blank.gif" width="1" height="1" alt=""></td>
+                        <td width="85%" rowspan="1">
+                            <#if language == 1>${member.content} <#else>${member.econtent}</#if>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td width="2" rowspan="1" valign="top" bgcolor="#003399"></td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <!-- Footer -->
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#003399" class="footer">
+        <tbody>
+        <tr>
+            <#setting datetime_format="yyyy-MM-dd"/>
+            <td height="24" bgcolor="#003399" style="padding: 2 10"><span
+                    class="maintext">Last Updated: ${(member.updateTime*1000)?number_to_datetime}</span></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<audio controls="controls" style="display: none;"></audio>
+</body>
+
+</html>

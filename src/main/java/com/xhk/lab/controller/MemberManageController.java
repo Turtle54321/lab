@@ -64,6 +64,9 @@ public class MemberManageController {
         if (member == null){
             throw new ProjectException(ErrorCodeMap.PARAMETER_EMPTY_ERROR);
         }
+        if (StringUtils.isBlank(member.getUrlName())){
+            throw new ProjectException(ErrorCodeMap.PARAMETER_LACK_ERROR);
+        }
         MemberChangeRequest request = new MemberChangeRequest();
         String headUrl = member.getHeadUrl();
         if (StringUtils.isBlank(headUrl)){

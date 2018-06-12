@@ -18,6 +18,9 @@
             <if test="ename != null and ename != ''">
                 ename = #{ename,jdbcType=VARCHAR},
             </if>
+            <if test="urlName != null and urlName != ''">
+                url_name = #{urlName,jdbcType=VARCHAR},
+            </if>
             <if test="headUrl != null and headUrl != ''">
                 head_url = #{headUrl,jdbcType=VARCHAR},
             </if>

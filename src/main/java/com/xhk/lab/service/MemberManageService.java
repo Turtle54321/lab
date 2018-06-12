@@ -7,12 +7,14 @@ import com.xhk.lab.dao.MemberDao;
 import com.xhk.lab.model.Member;
 import com.xhk.lab.rmodel.*;
 import com.xhk.lab.utils.DateUtil;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -47,6 +49,12 @@ public class MemberManageService {
     }
 
     public void changeMember(MemberChangeRequest request){
+        // 确认urlName无重复
+        List<Member> memberList = memberDao.getEntityListByUrlName(request.getMember().getUrlName());
+        if (!CollectionUtils.isEmpty(memberList)){
+            // urlName重复
+            throw new ProjectException(ErrorCodeMap.URL_NAME_REPEAT);
+        }
         Member member  = request.getMember();
         member.setUpdateTime(DateUtil.getCurrentTime());
 
@@ -59,6 +67,7 @@ public class MemberManageService {
             }
         }
         else{
+            // 更新
             int num = memberDao.updateEntity(member);
             if (num == 0){
                 throw new ProjectException(ErrorCodeMap.FAIL_TO_UPDATE);
