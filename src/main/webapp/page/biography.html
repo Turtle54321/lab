@@ -49,10 +49,21 @@
         <tbody>
         <tr>
             <td width="2" align="left" rowspan="1" valign="top" bgcolor="#003399"></td>
+            <div style="float: right;">
+                <a href="/${member.urlName}/biography.htm?language=<#if language == 1>2<#else>1</#if>">中英文切换</a>
+            </div>
+            <td width="2" rowspan="1" valign="top" bgcolor="#003399"></td>
+        </tr>
+        <tr>
+            <td width="2" align="left" rowspan="1" valign="top" bgcolor="#003399"></td>
             <td width="67%" align="left" valign="bottom"><img src="../static/biography/head.jpg" width="667"
                                                                              height="120"></td>
             <td width="13.6%" align="right" valign=""><p class="name"><font style="color:#0a1af6; font-size:32pt; font-family:华文楷体" vertical：middle> ${member.name}</font></p></td>
-            <td width="19%" align="left" valign=""><p class="name"><font style="color:#0a1af6; font-size:20pt; font-family:华文楷体" vertical：middle>(${member.ename})</font></p></td>
+            <td width="19%" align="left" valign="">
+                <p class="name"><font style="color:#0a1af6; font-size:20pt; font-family:华文楷体" vertical：middle>(${member.ename})</font></p>
+            </td>
+
+
             <td width="2" rowspan="1" valign="top" bgcolor="#003399"></td>
         </tr>
         <tr>
