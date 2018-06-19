@@ -65,7 +65,17 @@ define([
         //新闻修改
         $mod.find(".update").on("click",function(){
             var id=$(this).data("id");
-            location.href = "/news-change-page.do?newsId=" + id;
+            var type=$("#type").val();
+            if (type == 1){
+                location.href = "/news-change-page.do?newsId=" + id;
+            }
+            else if (type == 2){
+                location.href = "/project-change-page.do?newsId=" + id;
+            }
+            else{
+                location.href = "/photo-change-page.do?newsId=" + id;
+            }
+
         });
     }
 
